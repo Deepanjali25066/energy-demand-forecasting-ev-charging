@@ -1,8 +1,8 @@
-# ⚡ Energy Demand Forecasting — EV Charging Stations
+# Energy Demand Forecasting — EV Charging Stations
 
 Forecasting hourly electric vehicle (EV) charging demand using deep learning and graph-based spatio-temporal models, benchmarked against published research results.
 
-## 📌 Overview
+##  Overview
 
 This project predicts hourly EV charging energy demand (kWh) across multiple charging station locations in Boulder, Colorado, using historical charging session data. The goal was to explore how much predictive power comes from adding **spatial relationships between locations** on top of standard time-series modeling.
 
@@ -15,20 +15,20 @@ Four progressively more advanced models were built and compared:
 | **GCN-LSTM** | Graph Convolutional Network + LSTM — incorporates spatial relationships between charging station locations (ZIP codes) |
 | **GAT-LSTM (Proposed)** | Graph Attention Network + LSTM — learns *which* neighboring locations matter most, rather than treating all spatial neighbors equally |
 
-## 📊 Dataset
+##  Dataset
 
 - **Source:** Boulder, Colorado EV Charging Station session data (148,136 records, 17 columns)
 - **Key fields used:** session start/end time, energy delivered (kWh), station location (ZIP code)
 - **Processing:** Raw session-level data aggregated into hourly time series per location, with missing hours filled to maintain a continuous timeline
 
-## 🛠️ Feature Engineering
+##  Feature Engineering
 
 - Cyclical time encodings (hour, day-of-week, month) using sine/cosine transforms to help the model understand time as continuous rather than categorical
 - Lag features to capture daily and weekly demand patterns
 - Geographic coordinates per ZIP code used to build a spatial adjacency graph (via Euclidean distance) for the graph-based models
 - 7-day (168-hour) lookback window for all sequence models
 
-## 🧠 Model Architecture (Proposed: GAT-LSTM)
+##  Model Architecture (Proposed: GAT-LSTM)
 
 - Custom Graph Attention Layer with multi-head attention (4 heads) to weigh the influence of neighboring charging locations dynamically
 - Combined with stacked LSTM layers to capture temporal dependencies
@@ -48,7 +48,7 @@ Adding spatial graph structure (GCN-LSTM, GAT-LSTM) substantially outperformed s
 
 Results were also benchmarked against Alaraj et al. (2025) for validation against published literature.
 
-## 🧰 Tech Stack
+##  Tech Stack
 
 `Python` · `TensorFlow / Keras` · `Pandas` · `NumPy` · `Scikit-learn` · `Matplotlib` · `SciPy`
 
