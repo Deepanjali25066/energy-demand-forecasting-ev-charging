@@ -37,12 +37,7 @@ Four progressively more advanced models were built and compared:
 
 ## 📈 Results
 
-| Model | RMSE (kWh) | MAE (kWh) | RMSE (normalized) |
-|---|---|---|---|
-| LSTM | 25.96 | 18.05 | 0.0628 |
-| BiLSTM | 25.32 | 17.04 | 0.0612 |
-| GCN-LSTM | 12.10 | — | — |
-| **GAT-LSTM (Proposed)** | **Best performing** | — | — |
+ModelRMSE (kWh)MAE (kWh)RMSE (normalized)MAE (normalized)LSTM25.9618.050.06280.0398BiLSTM25.3217.040.06120.0375GCN-LSTM12.106.360.05710.0140GAT-LSTM (Proposed)11.826.410.05580.0141
 
 Adding spatial graph structure (GCN-LSTM, GAT-LSTM) substantially outperformed sequence-only models (LSTM, BiLSTM), confirming that EV charging demand at one location is meaningfully influenced by demand patterns at nearby locations.
 
